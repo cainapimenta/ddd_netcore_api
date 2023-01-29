@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API.CrossCutting", "API.Cro
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API.Data", "API.Data\API.Data.csproj", "{347BAA6D-1E89-4AA9-883B-6D9B4DFCBD4E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API.Service", "API.Service\API.Service.csproj", "{B5B01F2A-A20C-4238-A10A-204D38D20B1D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{347BAA6D-1E89-4AA9-883B-6D9B4DFCBD4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{347BAA6D-1E89-4AA9-883B-6D9B4DFCBD4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{347BAA6D-1E89-4AA9-883B-6D9B4DFCBD4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5B01F2A-A20C-4238-A10A-204D38D20B1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5B01F2A-A20C-4238-A10A-204D38D20B1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5B01F2A-A20C-4238-A10A-204D38D20B1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5B01F2A-A20C-4238-A10A-204D38D20B1D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
