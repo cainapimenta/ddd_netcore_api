@@ -3,15 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32328.378
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API.Application", "API.Application\API.Application.csproj", "{1388F2AF-916B-4472-8CA3-A784309459C9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API.Domain", "API.Domain\API.Domain.csproj", "{B1F514C3-25F8-4599-B326-B724C43D2E40}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API.Domain", "API.Domain\API.Domain.csproj", "{B1F514C3-25F8-4599-B326-B724C43D2E40}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API.CrossCutting", "API.CrossCutting\API.CrossCutting.csproj", "{3F76B5F1-2D60-4804-8A64-F10338A8FF9F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API.CrossCutting", "API.CrossCutting\API.CrossCutting.csproj", "{3F76B5F1-2D60-4804-8A64-F10338A8FF9F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API.Data", "API.Data\API.Data.csproj", "{347BAA6D-1E89-4AA9-883B-6D9B4DFCBD4E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API.Data", "API.Data\API.Data.csproj", "{347BAA6D-1E89-4AA9-883B-6D9B4DFCBD4E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API.Service", "API.Service\API.Service.csproj", "{B5B01F2A-A20C-4238-A10A-204D38D20B1D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API.Service", "API.Service\API.Service.csproj", "{B5B01F2A-A20C-4238-A10A-204D38D20B1D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,10 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{1388F2AF-916B-4472-8CA3-A784309459C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1388F2AF-916B-4472-8CA3-A784309459C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1388F2AF-916B-4472-8CA3-A784309459C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1388F2AF-916B-4472-8CA3-A784309459C9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B1F514C3-25F8-4599-B326-B724C43D2E40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B1F514C3-25F8-4599-B326-B724C43D2E40}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1F514C3-25F8-4599-B326-B724C43D2E40}.Release|Any CPU.ActiveCfg = Release|Any CPU
