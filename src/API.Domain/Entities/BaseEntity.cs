@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace API.Domain.Entities
 {
-    public abstract class BaseEntity
+    public class BaseEntity
     {
         private DateTime? _createAt;
 
