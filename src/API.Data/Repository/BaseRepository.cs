@@ -76,9 +76,25 @@ namespace API.Data.Repository
             throw new NotImplementedException();
         }
 
-        public Task<bool> DeleteAsync(Guid id)
+        public async Task<bool> DeleteAsync(Guid id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var result = await _dataSet.SingleOrDefaultAsync(x => x.Id.Equals(id));
+
+                if (result == null)
+                    return false;
+
+                _dataSet.Remove(result);
+
+                await _context.SaveChangesAsync();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }
