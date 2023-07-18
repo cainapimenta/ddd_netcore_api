@@ -41,9 +41,28 @@ namespace API.Data.Repository
             return entity;
         }
 
-        public Task<T> UpdateAsync(T entity)
+        public async Task<T> UpdateAsync(T entity)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var result = await _dataSet.SingleOrDefaultAsync(x => x.Id.Equals(entity.Id));
+
+                if (result == null)
+                    return null;
+
+                entity.CreateAt = result.CreateAt;
+                entity.UpdateAt = DateTime.UtcNow;
+
+                _context.Entry(result).CurrentValues.SetValues(entity);
+
+                await _context.SaveChangesAsync();
+
+                return entity;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
         
 
