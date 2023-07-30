@@ -64,7 +64,9 @@ namespace API.Data.Repository
                 throw ex;
             }
         }
-        
+
+        public async Task<bool> ExistAsync(Guid id)
+            => await _dataSet.AnyAsync(p => p.Id.Equals(id));
 
         public Task<T> SelectAsync(Guid id)
         {
