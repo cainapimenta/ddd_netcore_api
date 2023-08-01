@@ -77,5 +77,26 @@ namespace API.Application.Controllers
                 return StatusCode((int)HttpStatusCode.InternalServerError, ex.Message);
             }
         }
+
+        [HttpPut]
+        public async Task<IActionResult> Pust([FromBody] UserEntity user)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            try
+            {
+                var result = await _service.Put(user);
+
+                if (result == null)
+                    return BadRequest();
+
+                return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return StatusCode((int)HttpStatusCode.InternalServerError, ex.Message);
+            }
+        }
     }
 }
