@@ -89,7 +89,7 @@ namespace API.Application.Controllers
                 var result = await _service.Put(user);
 
                 if (result == null)
-                    return BadRequest();
+                    return BadRequest(); 
 
                 return Ok(result);
             }
