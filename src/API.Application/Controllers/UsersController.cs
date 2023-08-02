@@ -1,6 +1,7 @@
 ﻿using API.Domain.Entities;
 using API.Domain.Interfaces.Services.User;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Routing;
 using System;
 using System.Net;
 using System.Threading.Tasks;
@@ -79,7 +80,7 @@ namespace API.Application.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> Pust([FromBody] UserEntity user)
+        public async Task<IActionResult> Put([FromBody] UserEntity user)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -92,6 +93,27 @@ namespace API.Application.Controllers
                     return BadRequest(); 
 
                 return Ok(result);
+            }
+            catch (ArgumentException ex)
+            {
+                return StatusCode((int)HttpStatusCode.InternalServerError, ex.Message);
+            }
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete([FromRoute] Guid id)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            try
+            {
+                var result = await _service.Delete(id);
+
+                if (!result)
+                    return BadRequest();
+
+                return NoContent();
             }
             catch (ArgumentException ex)
             {
