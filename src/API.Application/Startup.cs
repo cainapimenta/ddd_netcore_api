@@ -29,7 +29,7 @@ namespace API.Application
             var tokenConfiguration = new TokenConfigurations();
             new ConfigureFromConfigurationOptions<TokenConfigurations>(
                 Configuration.GetSection("TokenConfigurations"))
-                .Configure(tokenConfiguration);
+                .Configure(tokenConfiguration); 
 
             services.AddSingleton(tokenConfiguration);
 
