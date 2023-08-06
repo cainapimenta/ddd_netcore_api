@@ -1,10 +1,12 @@
 using API.CrossCutting.DependencyInjection;
+using API.Domain.Security;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 
 namespace API.Application
@@ -23,6 +25,13 @@ namespace API.Application
         {
             ConfigureRepository.ConfigureDependenciesRepository(services);
             ConfigureService.ConfigureDependenciesService(services);
+
+            var tokenConfiguration = new TokenConfigurations();
+            new ConfigureFromConfigurationOptions<TokenConfigurations>(
+                Configuration.GetSection("TokenConfigurations"))
+                .Configure(tokenConfiguration);
+
+            services.AddSingleton(tokenConfiguration);
 
             services.AddControllers();
 
