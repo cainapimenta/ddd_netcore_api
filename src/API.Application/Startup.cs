@@ -11,6 +11,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using System;
+using System.Collections.Generic;
 
 namespace API.Application
 {
@@ -35,7 +36,7 @@ namespace API.Application
             var tokenConfiguration = new TokenConfigurations();
             new ConfigureFromConfigurationOptions<TokenConfigurations>(
                 Configuration.GetSection("TokenConfigurations"))
-                .Configure(tokenConfiguration); 
+                .Configure(tokenConfiguration);
 
             services.AddSingleton(tokenConfiguration);
 
@@ -70,6 +71,28 @@ namespace API.Application
                     Version = "v1",
                     Title = "Curso de API com .NET Core 3.1",
                     Description = "Arquitetura DDD"
+                });
+
+                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
+                {
+                    Description = "Entre com o Token JWT",
+                    Name = "Authorization",
+                    In = ParameterLocation.Header,
+                    Type = SecuritySchemeType.ApiKey
+                });
+
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference = new OpenApiReference
+                            {
+                                Id = "Bearer",
+                                Type = ReferenceType.SecurityScheme
+                            }
+                        }, new List<string>()
+                    }
                 });
             });
         }
