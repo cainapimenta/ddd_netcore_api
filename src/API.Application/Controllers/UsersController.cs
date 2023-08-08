@@ -1,5 +1,6 @@
 ﻿using API.Domain.Entities;
 using API.Domain.Interfaces.Services.User;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
 using System;
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace API.Application.Controllers
 {
+    [Authorize("Bearer")]
     [Route("api/[controller]")]
     [ApiController]
     public class UsersController : ControllerBase

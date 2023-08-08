@@ -20,9 +20,6 @@ namespace API.CrossCutting.DependencyInjection
             servicesCollection.AddDbContext<MyContext>(
                 options => options.UseMySql("Server=localhost;Port=3306;Database=dbAPI;Uid=root;Pwd=B1admin@")
             );
-
-            
-            servicesCollection.AddSingleton<SigningConfigurations>();
         }
     }
 }
