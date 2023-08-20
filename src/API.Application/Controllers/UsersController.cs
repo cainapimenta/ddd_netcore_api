@@ -51,6 +51,9 @@ namespace API.Application.Controllers
             {
                 var ret = await _service.Get(id);
 
+                if (ret == null)
+                    return NotFound();
+
                 return Ok(ret);
             }
             catch (ArgumentException ex)
