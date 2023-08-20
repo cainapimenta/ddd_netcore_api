@@ -41,14 +41,6 @@ namespace API.Domain.Models.User
 			}
 		}
 
-		private DateTime _updateAt;
-
-		public DateTime UpdateAt
-		{
-			get { return _updateAt; }
-			set { _updateAt = value; }
-		}
-
-
-	}
+        public DateTime? UpdateAt { get; set; }
+    }
 }
