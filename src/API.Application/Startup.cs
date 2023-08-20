@@ -90,7 +90,8 @@ namespace API.Application
                     Description = "Entre com o Token JWT",
                     Name = "Authorization",
                     In = ParameterLocation.Header,
-                    Type = SecuritySchemeType.ApiKey
+                    Type = SecuritySchemeType.Http,
+                    Scheme = "bearer"
                 });
 
                 c.AddSecurityRequirement(new OpenApiSecurityRequirement
