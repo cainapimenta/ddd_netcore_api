@@ -23,7 +23,10 @@
       "launchUrl": "",
       "applicationUrl": "http://localhost:5000",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "DB_CONNECTION": "Server=localhost;Initial Catalog=dbAPI;User Id=sa;Password=b1admin",
+        "DATABASE": "SQLSERVER",
+        "MIGRATION": "APLICAR"
       }
     }
   }

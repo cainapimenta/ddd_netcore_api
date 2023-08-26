@@ -8,6 +8,7 @@ using API.Domain.Security;
 using API.Service.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using System;
 
 namespace API.CrossCutting.DependencyInjection
 {
@@ -17,9 +18,12 @@ namespace API.CrossCutting.DependencyInjection
         {
             servicesCollection.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
             servicesCollection.AddScoped<IUserRepository, UserImplementation>();
-            servicesCollection.AddDbContext<MyContext>(
-                options => options.UseSqlServer("Server=localhost;Initial Catalog=dbAPI;User Id=sa;Password=b1admin")
-            );
+
+            if (Environment.GetEnvironmentVariable("DATABASE").ToLower() == "SQLSERVER".ToLower())
+                servicesCollection.AddDbContext<MyContext>(options => options.UseSqlServer(Environment.GetEnvironmentVariable("DB_CONNECTION")));
+            else
+                servicesCollection.AddDbContext<MyContext>(options => options.UseMySql(Environment.GetEnvironmentVariable("DB_CONNECTION")));
+
         }
     }
 }
