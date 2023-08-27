@@ -4,6 +4,7 @@ using API.Domain.Entities;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xunit;
@@ -37,6 +38,33 @@ namespace Api.Data.Test
                 Assert.Equal(entity.Email, registroCriado.Email);
                 Assert.Equal(entity.Name, registroCriado.Name);
                 Assert.False(registroCriado.Id == Guid.Empty);
+
+                entity.Name = Faker.Name.First();
+                var registroAtualizado = await repotitory.UpdateAsync(entity);
+
+                Assert.NotNull(registroAtualizado);
+                Assert.Equal(entity.Email, registroAtualizado.Email);
+                Assert.Equal(entity.Name, registroAtualizado.Name);
+
+                var registroExiste = await repotitory.ExistAsync(registroAtualizado.Id);
+                Assert.True(registroExiste);
+
+                var registroSelecionado = await repotitory.SelectAsync(registroAtualizado.Id);
+                Assert.NotNull(registroSelecionado);
+                Assert.Equal(registroAtualizado.Email, registroSelecionado.Email);
+                Assert.Equal(registroAtualizado.Name, registroSelecionado.Name);
+
+                var todosRegistros = await repotitory.SelectAsync();
+                Assert.NotNull(todosRegistros);
+                Assert.True(todosRegistros.Count() > 1);
+
+                var removerRegistro = await repotitory.DeleteAsync(registroSelecionado.Id);
+                Assert.True(removerRegistro);
+
+                var usuarioByLogin = await repotitory.FindByLogin("adm@projeto.com.br");
+                Assert.NotNull(usuarioByLogin);
+                Assert.Equal("adm@projeto.com.br", usuarioByLogin.Email);
+                Assert.Equal("Administrador", usuarioByLogin.Name);
             }
         }
     }
