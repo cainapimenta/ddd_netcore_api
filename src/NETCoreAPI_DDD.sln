@@ -15,6 +15,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "API.CrossCutting", "API.Cro
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api.Data.Test", "Api.Data.Test\Api.Data.Test.csproj", "{3FC0D454-EA48-43CD-ADDF-BE45A7B30EDD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api.Service.Test", "Api.Service.Test\Api.Service.Test.csproj", "{82CF0279-729D-4466-830C-6A57B9037391}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testes", "Testes", "{B294B0C2-5FE8-4DCA-B860-52F486F42BF5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,9 +49,17 @@ Global
 		{3FC0D454-EA48-43CD-ADDF-BE45A7B30EDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3FC0D454-EA48-43CD-ADDF-BE45A7B30EDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3FC0D454-EA48-43CD-ADDF-BE45A7B30EDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82CF0279-729D-4466-830C-6A57B9037391}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82CF0279-729D-4466-830C-6A57B9037391}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82CF0279-729D-4466-830C-6A57B9037391}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82CF0279-729D-4466-830C-6A57B9037391}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3FC0D454-EA48-43CD-ADDF-BE45A7B30EDD} = {B294B0C2-5FE8-4DCA-B860-52F486F42BF5}
+		{82CF0279-729D-4466-830C-6A57B9037391} = {B294B0C2-5FE8-4DCA-B860-52F486F42BF5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3462E87D-CC21-4D4D-BF20-542A15F7CB52}
